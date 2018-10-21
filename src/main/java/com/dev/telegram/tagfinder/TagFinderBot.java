@@ -16,11 +16,13 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 public class TagFinderBot extends TelegramLongPollingBot {
 
+	@Override
 	public String getBotUsername() {
 		// you can get a bot username using @BotFather 
 		return "<your_bot_username>";
 	}
 
+	@Override
 	public void onUpdateReceived(Update update) {
 
 		String msg = null;
