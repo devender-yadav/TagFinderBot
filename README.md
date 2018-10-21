@@ -27,6 +27,7 @@ Steps to create the bot -
            <version>1.11.368</version>
        </dependency>
     
+_Note: Make sure to use updated dependencies._
        
 4. Create a new bot by extending `org.telegram.telegrambots.bots.TelegramLongPollingBot`. Set Bot username in `getBotUsername()` and Bot token in `getBotToken()`. We will recieve updates in `onUpdateReceived()` method.
 
