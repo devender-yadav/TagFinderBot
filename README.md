@@ -37,8 +37,14 @@ _Note: Make sure to use updated dependencies._
 6. Get ACCESS_KEY and SECRET_KEY from AWS to access AWS Rekognition. Check [AWSRekognition.java](https://github.com/devender-yadav/TagFinderBot/blob/master/src/main/java/com/dev/telegram/tagfinder/AmazonRekognitionUtil.java) for code to get tags/labels from the `ByteBuffer`.
 
 
-4. Now finally register your bot. Check [TagFinderApp.java](https://github.com/devender-yadav/TagFinderBot/blob/master/src/main/java/com/dev/telegram/tagfinder/TagFinderApp.java) for details.
+7. Now finally register your bot. Check [TagFinderApp.java](https://github.com/devender-yadav/TagFinderBot/blob/master/src/main/java/com/dev/telegram/tagfinder/TagFinderApp.java) for details.
 
 
-All set. Start your Bot 🤖 and enjoy!
+8. All done. Build the project `mvn clean install`. `tagfinder-0.1-jar-with-dependencies.jar` will be created in target folder.
+
+9. Start your bot 🤖 using
+
+       java -jar tagfinder-0.1-jar-with-dependencies.jar
+
+
 
