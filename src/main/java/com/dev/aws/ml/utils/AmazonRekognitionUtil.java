@@ -1,4 +1,4 @@
-package com.dev.telegram.tagfinder;
+package com.dev.aws.ml.utils;
 
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
@@ -17,13 +17,12 @@ import com.amazonaws.services.rekognition.model.DetectLabelsRequest;
 import com.amazonaws.services.rekognition.model.DetectLabelsResult;
 import com.amazonaws.services.rekognition.model.Image;
 import com.amazonaws.services.rekognition.model.Label;
+import com.dev.telegram.tagfinder.utils.Constants;
+import com.dev.telegram.tagfinder.utils.PropertyReader;
 
 public class AmazonRekognitionUtil {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(AmazonRekognitionUtil.class);
-
-	private static final String ACCESS_KEY = "<ACCESS_KEY>";
-	private static final String SECRET_KEY = "<SECRET_KEY>";
 
 	private AmazonRekognitionUtil() {
 	}
@@ -32,7 +31,9 @@ public class AmazonRekognitionUtil {
 
 	private static synchronized void initialize() {
 		if (rekognitionClient == null) {
-			AWSCredentials credentials = new BasicAWSCredentials(ACCESS_KEY, SECRET_KEY);
+			AWSCredentials credentials = new BasicAWSCredentials(
+					PropertyReader.getProperty(Constants.AWS_REKOGNITION_ACCESSKEY),
+					PropertyReader.getProperty(Constants.AWS_REKOGNITION_SECRETKEY));
 			rekognitionClient = AmazonRekognitionClientBuilder.standard().withRegion(Regions.US_EAST_1)
 					.withCredentials(new AWSStaticCredentialsProvider(credentials)).build();
 			LOGGER.info("AWS RekognitionClient initialized!");

@@ -16,14 +16,17 @@ import org.telegram.telegrambots.meta.api.objects.PhotoSize;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
+import com.dev.aws.ml.utils.AmazonRekognitionUtil;
+import com.dev.telegram.tagfinder.utils.Constants;
+import com.dev.telegram.tagfinder.utils.PropertyReader;
+
 public class TagFinderBot extends TelegramLongPollingBot {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(TagFinderBot.class);
 
 	@Override
 	public String getBotUsername() {
-		// you can get a bot username using @BotFather
-		return "<your_bot_username>";
+		return PropertyReader.getProperty(Constants.BOT_USERNAME);
 	}
 
 	@Override
@@ -63,7 +66,7 @@ public class TagFinderBot extends TelegramLongPollingBot {
 
 	@Override
 	public String getBotToken() {
-		return "<your bot token which can be get from @BotFather>";
+		return PropertyReader.getProperty(Constants.BOT_TOKEN);
 	}
 
 	private ByteBuffer getPhotoData(PhotoSize photoSize) {
