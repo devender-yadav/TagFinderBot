@@ -7,6 +7,8 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.GetFile;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
@@ -16,9 +18,11 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 public class TagFinderBot extends TelegramLongPollingBot {
 
+	public static final Logger LOGGER = LoggerFactory.getLogger(TagFinderBot.class);
+
 	@Override
 	public String getBotUsername() {
-		// you can get a bot username using @BotFather 
+		// you can get a bot username using @BotFather
 		return "<your_bot_username>";
 	}
 
@@ -65,20 +69,20 @@ public class TagFinderBot extends TelegramLongPollingBot {
 	private ByteBuffer getPhotoData(PhotoSize photoSize) {
 		GetFile getFileMethod = new GetFile();
 		getFileMethod.setFileId(photoSize.getFileId());
-		org.telegram.telegrambots.meta.api.objects.File file;
+		org.telegram.telegrambots.meta.api.objects.File file = null;
 		File localFile = null;
 		try {
 			file = this.execute(getFileMethod);
 			localFile = this.downloadFile(file.getFilePath());
 		} catch (TelegramApiException ex) {
-			ex.printStackTrace();
+			LOGGER.error("Not able to download file from telegram.", ex);
 			return null;
 		}
 		byte[] bytes = null;
 		try {
 			bytes = Files.readAllBytes(Paths.get(localFile.getPath()));
 		} catch (IOException e) {
-			e.printStackTrace();
+			LOGGER.error("Not able to get bytes from the file.", e);
 			return null;
 		}
 		return ByteBuffer.wrap(bytes);
@@ -88,9 +92,9 @@ public class TagFinderBot extends TelegramLongPollingBot {
 		SendMessage message = new SendMessage().setChatId(chatId).setText(reply);
 		try {
 			execute(message);
-			System.out.println("sending msg - " + reply);
+			LOGGER.info("sending msg - {}", reply);
 		} catch (TelegramApiException e) {
-			e.printStackTrace();
+			LOGGER.error("Not able to send messge.", e);
 		}
 	}
 

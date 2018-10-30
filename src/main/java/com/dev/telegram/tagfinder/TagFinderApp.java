@@ -1,10 +1,14 @@
 package com.dev.telegram.tagfinder;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.telegram.telegrambots.ApiContextInitializer;
 import org.telegram.telegrambots.meta.TelegramBotsApi;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 public class TagFinderApp {
+
+	public static final Logger LOGGER = LoggerFactory.getLogger(TagFinderApp.class);
 
 	public static void main(String[] args) {
 
@@ -14,9 +18,9 @@ public class TagFinderApp {
 
 		try {
 			botsApi.registerBot(new TagFinderBot());
-			System.out.println("Bot is started!");
+			LOGGER.info("TagFinderBot has started!");
 		} catch (TelegramApiException e) {
-			e.printStackTrace();
+			LOGGER.error("Not able to start TagFinderBot.", e);
 		}
 	}
 

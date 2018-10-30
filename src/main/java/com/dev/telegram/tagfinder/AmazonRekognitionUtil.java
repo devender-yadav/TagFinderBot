@@ -4,6 +4,9 @@ import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.amazonaws.auth.AWSCredentials;
 import com.amazonaws.auth.AWSStaticCredentialsProvider;
 import com.amazonaws.auth.BasicAWSCredentials;
@@ -16,6 +19,8 @@ import com.amazonaws.services.rekognition.model.Image;
 import com.amazonaws.services.rekognition.model.Label;
 
 public class AmazonRekognitionUtil {
+
+	public static final Logger LOGGER = LoggerFactory.getLogger(AmazonRekognitionUtil.class);
 
 	private static final String ACCESS_KEY = "<ACCESS_KEY>";
 	private static final String SECRET_KEY = "<SECRET_KEY>";
@@ -30,7 +35,7 @@ public class AmazonRekognitionUtil {
 			AWSCredentials credentials = new BasicAWSCredentials(ACCESS_KEY, SECRET_KEY);
 			rekognitionClient = AmazonRekognitionClientBuilder.standard().withRegion(Regions.US_EAST_1)
 					.withCredentials(new AWSStaticCredentialsProvider(credentials)).build();
-			System.out.println("****AWS RekognitionClient initialized!!********");
+			LOGGER.info("AWS RekognitionClient initialized!");
 		}
 	}
 
