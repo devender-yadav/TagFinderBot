@@ -20,7 +20,7 @@ import com.amazonaws.services.rekognition.model.Label;
 
 public class AmazonRekognitionUtil {
 
-	public static final Logger LOGGER = LoggerFactory.getLogger(AmazonRekognitionUtil.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(AmazonRekognitionUtil.class);
 
 	private static final String ACCESS_KEY = "<ACCESS_KEY>";
 	private static final String SECRET_KEY = "<SECRET_KEY>";
