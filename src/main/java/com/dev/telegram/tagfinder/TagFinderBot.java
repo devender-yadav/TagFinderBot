@@ -95,7 +95,7 @@ public class TagFinderBot extends TelegramLongPollingBot {
 		SendMessage message = new SendMessage().setChatId(chatId).setText(reply);
 		try {
 			execute(message);
-			LOGGER.info("sending msg - {}", reply);
+			LOGGER.info("sending msg : {}", reply);
 		} catch (TelegramApiException e) {
 			LOGGER.error("Not able to send messge.", e);
 		}
