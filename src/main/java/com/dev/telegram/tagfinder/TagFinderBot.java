@@ -18,7 +18,7 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 public class TagFinderBot extends TelegramLongPollingBot {
 
-	public static final Logger LOGGER = LoggerFactory.getLogger(TagFinderBot.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(TagFinderBot.class);
 
 	@Override
 	public String getBotUsername() {
