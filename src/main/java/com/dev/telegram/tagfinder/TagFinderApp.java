@@ -8,7 +8,7 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 public class TagFinderApp {
 
-	public static final Logger LOGGER = LoggerFactory.getLogger(TagFinderApp.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(TagFinderApp.class);
 
 	public static void main(String[] args) {
 
