@@ -28,8 +28,4 @@ public class PropertyReader {
 		return properties.getProperty(key);
 	}
 
-	public static void main(String[] args) {
-		System.out.println(getProperty("bot.username"));
-	}
-
 }
