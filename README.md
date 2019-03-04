@@ -47,4 +47,9 @@ _Note: Make sure to use updated dependencies._
        java -jar tagfinder-0.1-jar-with-dependencies.jar
 
 
+---------------------
+
+### Wanna see working bot 🤖
+Check - https://t.me/TagFinderBot
+
 
