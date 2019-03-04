@@ -1,6 +1,9 @@
 # TagFinderBot
 
+### Wanna see working bot [🤖](https://t.me/TagFinderBot)
+Check - https://t.me/TagFinderBot
 
+-----------------------
 
 This is a tutorial to create a telegram bot which can suggest tags/labels in an image using [AWS Rekognition](https://aws.amazon.com/rekognition/). We will be using [TelegramBots Java API](https://github.com/rubenlagus/TelegramBots).
 
@@ -46,10 +49,5 @@ _Note: Make sure to use updated dependencies._
 
        java -jar tagfinder-0.1-jar-with-dependencies.jar
 
-
----------------------
-
-### Wanna see working bot 🤖
-Check - https://t.me/TagFinderBot
 
 
